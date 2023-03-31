@@ -6,7 +6,18 @@
 </head>
 <body>
 <p th:text="${people.getFullName() + ', ' + people.getYearOfBirth()}">Name</p>
-<br/>
+<hr/>
+<div th:if="${books.isEmpty()}">
+    <p>Человек пока не взял ни одной книги</p>
+</div>
+
+<div th:if="${!books.isEmpty()}">
+    <b> Книги: </b>
+    <br/>
+    <table th:each="book : ${books}">
+        <a th:text = "${book.getTitle() + ', ' + book.getAuthor() + ', ' + book.getPublishYear()}">Books List</a>
+    </table>
+</div>
 <hr/>
 <form th:action="@{/people/{id}/edit(id=${people.getPeople_id()})}">
     <input type="submit" value="Редактировать!">

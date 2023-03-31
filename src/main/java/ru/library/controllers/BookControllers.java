@@ -1,6 +1,7 @@
 package ru.library.controllers;
 
 import ru.library.dao.BookDAO;
+import ru.library.dao.PeopleDAO;
 import ru.library.models.Book;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,10 +16,12 @@ import javax.validation.Valid;
 @RequestMapping("/books")
 public class BookControllers {
     private final BookDAO bookDAO;
+    private final PeopleDAO peopleDAO;
 
     @Autowired
-    public BookControllers(BookDAO bookDAO) {
+    public BookControllers(BookDAO bookDAO, PeopleDAO peopleDAO) {
         this.bookDAO = bookDAO;
+        this.peopleDAO = peopleDAO;
     }
 
   //Получаем список всеъ книг
