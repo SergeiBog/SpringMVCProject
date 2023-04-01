@@ -20,7 +20,7 @@
     <span>Эта книга свободна. Кому ее назначить?</span>
     <form th:method="PATCH" th:action="@{/books/{id}/assign(id=${books.getBook_id()})}">
         <label for="people">Выберите Человека</label>
-        <select th:object="${people}" th:field="*{id}" id="people">
+        <select th:object="${people}" th:field="*{people_id}" id="people">
             <option th:each = "people : ${person}" th:value="${people.getPeople_id()}" th:text = "${people.getFullName()}">
             </option>
         </select>

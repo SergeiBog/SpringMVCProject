@@ -49,7 +49,7 @@ public class BookDAO {
     }
 
     public void assign(int id, People people) {
-        jdbcTemplate.update("UPDATE book SET book.people_id =? WHERE book_id = ?", people.getPeople_id(), id);
+        jdbcTemplate.update("UPDATE book SET people_id =? WHERE book_id = ?", people.getPeople_id(), id);
     }
 
     public void release(int id) {
